@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petlove × Musa — Agenda ESG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F5F5F5;
+  --surface: #FFFFFF;
+  --surface-warm: #F9EDE4;
+  --border: rgba(0,0,0,0.07);
+  --text-primary: #222222;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --orange: #FFBA86;
+  --orange-dark: #b35a00;
+  --blue: #8AA5FF;
+  --blue-light: #e8eeff;
+  --dark: #222222;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --serif: 'Libre Caslon Text', serif;
+  --sans: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text-primary); min-height: 100vh; }
+
+/* HEADER */
+.header {
+  background: var(--dark);
+  padding: 32px 48px 28px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+.header-logos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.logo-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.2);
+  align-self: center;
+}
+.header-meta {
+  text-align: right;
+}
+.header-meta-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 4px;
+}
+.header-meta-value {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* HERO */
+.hero {
+  background: var(--dark);
+  padding: 0 48px 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #fff;
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+.hero-sub {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.55);
+  max-width: 580px;
+}
+
+/* CONTENT */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 48px 80px;
+}
+
+/* SECTION */
+.section {
+  margin-bottom: 60px;
+}
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.section-lead {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 620px;
+  margin-bottom: 28px;
+}
+
+/* DIVIDER */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 48px 0;
+}
+
+/* CARDS GRID */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.cards-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+/* IDEA CARD */
+.idea-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  transition: transform .15s ease, box-shadow .15s ease;
+  cursor: default;
+}
+.idea-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.idea-card-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.tag-orange { background: #fff4eb; color: var(--orange-dark); }
+.tag-blue   { background: var(--blue-light); color: #4466cc; }
+.tag-dark   { background: #ebebeb; color: #555; }
+
+.idea-card-title {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+.idea-card-body {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.idea-card-body strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* FEATURED CARD */
+.featured-card {
+  background: var(--dark);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+  margin-bottom: 28px;
+}
+.featured-card-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+.featured-card-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  max-width: 560px;
+}
+.featured-card-body {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* PRINCIPLE STRIP */
+.principle {
+  background: var(--surface-warm);
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 10px;
+  transition: transform .15s ease, box-shadow .15s ease;
+  cursor: default;
+}
+.principle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.principle-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+.principle-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.principle-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+
+/* RANKING PREVIEW */
+.ranking-preview {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.ranking-header {
+  background: var(--surface-warm);
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+.ranking-header-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.ranking-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+  transition: background .1s ease;
+}
+.ranking-row:last-child { border-bottom: none; }
+.ranking-row:hover { background: #fafafa; }
+.ranking-pos {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--text-muted);
+  width: 24px;
+  flex-shrink: 0;
+}
+.ranking-pos.top { color: var(--orange-dark); }
+.ranking-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex: 1;
+}
+.ranking-tier {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.tier-a { background: #e8eeff; color: #4466cc; }
+.tier-b { background: #f0f4ff; color: #6688dd; }
+.tier-c { background: #fff4ec; color: var(--orange-dark); }
+.ranking-bar-wrap {
+  width: 120px;
+  height: 5px;
+  background: rgba(0,0,0,0.07);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.ranking-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+.ranking-pct {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  width: 36px;
+  text-align: right;
+}
+
+/* FOOTER NOTE */
+.footer-note {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* AGENDA PILL */
+.agenda-pills {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.agenda-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 18px 8px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.agenda-pill-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.agenda-pill.active {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: rgba(255,255,255,0.75);
+}
+.agenda-pill.active .agenda-pill-num {
+  background: var(--orange);
+  color: var(--dark);
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-logos">
+    <!-- Musa wordmark -->
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM4NiIgaGVpZ2h0PSIzODAiIHZpZXdCb3g9IjAgMCAxMzg2IDM4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYxOS41MzYgMjIyLjgyM0w1MzguMzEzIDU4LjYxMzdINDkwLjQzVjMxNi41NzRINTE2LjI4OVY3Mi40NzQxTDU5My4wOTQgMjMxLjEzMUg2NDYuMDY3TDcyMi43NzMgNzIuNDc0MVYzMTYuNTc0SDc0OC42MzJWNTguNjEzN0g3MDAuNzQ5TDYxOS41MjUgMjIyLjgyM0g2MTkuNTM2WiIgZmlsbD0iI0ZGRkZGRiIvPgo8cGF0aCBkPSJNOTQxLjg2OSAyMTUuNjUxQzk0MS44NjkgMjM5LjM5NSA5MzUuNTg5IDI1OC40IDkyMy4wNCAyNzIuNjQ2QzkxMC40OTEgMjg2LjkwMyA4OTMuNTU2IDI5NC4wMSA4NzIuMjgxIDI5NC4wMUM4NTUuNzg3IDI5NC4wMSA4NDMuMTE3IDI4OC43MzIgODM0LjI0NyAyNzguMTc3QzgyNS4zNjcgMjY3LjYyMiA4MjAuOTM4IDI1Mi40NTEgODIwLjkzOCAyMzIuNjYzVjExNS44OTZINzk1LjgzOVYyMzcuNDExQzc5NS44MzkgMjYyLjQ4OCA4MDEuNjY4IDI4Mi42MDcgODEzLjMzNiAyOTcuNzc4QzgyNC45OTIgMzEyLjk1IDg0Mi44NjMgMzIwLjU0MSA4NjYuOTU5IDMyMC41NDFDODg2LjczNiAzMjAuNTQxIDkwNy45NjggMzE0LjQ5MiA5MjEuMjExIDMwMy40ODVDOTM0LjQ1NCAyOTIuNDc4IDkzNy45MTQgMjg2LjY4MyA5NDEuODY5IDI3Ny40MzlWMzE2LjU3NEg5NjcuMzQzVjExNS45MDdIOTQxLjg2OVYyMTUuNjUxWiIgZmlsbD0iI0ZGRkZGRiIvPgo8cGF0aCBkPSJNMTE0OS4yMyAyMjIuNTE0QzExMzcuNyAyMTQuOTg5IDExMjMuMDUgMjA5LjY1NiAxMTA1LjMxIDIwNi40ODNMMTA3Ny45NCAyMDEuMzM4QzEwNjIuMjIgMTk4LjQ0IDEwNTEuMjUgMTk0LjY3MiAxMDQ1LjA1IDE5MC4wNjdDMTAzOC44MyAxODUuNDUgMTAzNS43MyAxNzguNTMxIDEwMzUuNzMgMTY5LjI4N0MxMDM1LjczIDE1OC43MzIgMTA0MC4wMyAxNTAuNTU3IDEwNDguNjUgMTQ0LjczOUMxMDU3LjI3IDEzOC45NDQgMTA2OC42NyAxMzYuMDM1IDEwODIuODcgMTM2LjAzNUMxMTAwLjEgMTM2LjAzNSAxMTEzLjU0IDE0MC4wMDIgMTEyMy4xOSAxNDcuOTEzQzExMzIuOCAxNTUuODIzIDExMzcuODggMTY2LjY0MyAxMTM4LjQgMTgwLjM3MUgxMTY0LjYzQzExNjMuNjIgMTU5LjAwOCAxMTU2LjIxIDE0Mi4yMzggMTE0Mi4zOSAxMzAuMDk3QzExMjguNTcgMTE3Ljk1NSAxMTA5LjI0IDExMS44OTUgMTA4NC4zOSAxMTEuODk1QzEwNjIuMzMgMTExLjg5NSAxMDQ0LjQ2IDExNi44NDIgMTAzMC43NyAxMjYuNzM2QzEwMTcuMDcgMTM2LjYzIDEwMTAuMjQgMTUwLjk1MyAxMDEwLjI0IDE2OS42ODRDMTAxMC4yNCAxODcuMzY3IDEwMTUuMzEgMjAwLjAyNyAxMDI1LjQ2IDIwNy42ODRDMTAzNS41OSAyMTUuMzQyIDEwNTAuMTcgMjIxLjAwNSAxMDY5LjE5IDIyNC43MDdMMTA5OC44NSAyMzAuMjQ5QzExMTQuODIgMjMzLjQxMSAxMTI1Ljg1IDIzNy4zNzcgMTEzMS45MiAyNDIuMTI2QzExMzguMDIgMjQ2Ljg3NSAxMTQxLjA1IDI1My44NzEgMTE0MS4wNSAyNjMuMTA0QzExNDEuMDUgMjczLjkyMyAxMTM2Ljc0IDI4Mi4xNzYgMTEyOC4xMiAyODcuODVDMTExOS41MSAyOTMuNTI0IDExMDcuNzIgMjk2LjM1NSAxMDkyLjc1IDI5Ni4zNTVDMTA3NS4yNiAyOTYuMzU1IDEwNjAuOTMgMjkyLjM0NSAxMDQ5Ljc3IDI4NC4yOEMxMDM4LjYxIDI3Ni4yMzcgMTAzMi45MiAyNjUuMzUxIDEwMzIuNjYgMjUxLjYyM0gxMDA2LjhDMTAwNy4zMSAyNzIuNzMzIDEwMTUuMjMgMjg5LjQ5MSAxMDMwLjU4IDMwMS44OTdDMTA0NS45MSAzMTQuMzA0IDEwNjYuMTMgMzIwLjQ5NiAxMDkxLjIzIDMyMC40OTZDMTExMy44IDMyMC40OTYgMTEzMS45OSAzMTUuNTQ4IDExNDUuOCAzMDUuNjU0QzExNTkuNjIgMjk1Ljc2MSAxMTY2LjU0IDI4MS40MzcgMTE2Ni41NCAyNjIuNzA3QzExNjYuNTQgMjQzLjk3NyAxMTYwLjc3IDIzMC4wNSAxMTQ5LjI0IDIyMi41MjVMMTE0OS4yMyAyMjIuNTE0WiIgZmlsbD0iI0ZGRkZGRiIvPgo8cGF0aCBkPSJNMTM3OC4zNyAyOTAuMDA5QzEzNzQuNTYgMjkwLjAwOSAxMzcxLjU5IDI4OS40MTQgMTM3MC4wNiAyODcuNTYzQzEzNjguNTUgMjg1LjcxMiAxMzY4LjA5IDI4Mi4wOTggMTM2OC4wOSAyNzcuMzVWMTg5Ljg3OUMxMzY4LjA5IDEzNy44ODYgMTMzOS45NSAxMTEuODk1IDEyODMuNjcgMTExLjg5NUMxMjU5LjU3IDExMS44OTUgMTI0MC4xMyAxMTguNDI5IDEyMjUuMyAxMzEuNDk2QzEyMTAuNDcgMTQ0LjU1MiAxMjAyLjUzIDE2Mi45NjMgMTIwMS41MiAxODYuNzE3SDEyMjcuMzhDMTIzMC42NyAxNTIuNjgzIDEyNTAuMDYgMTM1LjY2MSAxMjg1LjU2IDEzNS42NjFDMTMwNC41NyAxMzUuNjYxIDEzMTguODkgMTQwLjM1NCAxMzI4LjUzIDE0OS43MTlDMTMzOC4xNiAxNTkuMDk2IDEzNDIuOTkgMTcxLjY4OSAxMzQyLjk5IDE4Ny41MjJDMTM0Mi45OSAxOTMuODQ2IDEzMzcuMzQgMTk3Ljg3OCAxMzI2LjA2IDE5OS41OTdDMTMxNC43NyAyMDEuMzE2IDEyOTcuNDcgMjAyLjQ0IDEyNzQuMTYgMjAyLjk1OEMxMjUxLjM0IDIwMy40ODYgMTIzMy4wOSAyMDguMzAxIDEyMTkuMzkgMjE3LjQxM0MxMjA1LjY5IDIyNi41MjUgMTE5OC44NiAyNDAuNDQgMTE5OC44NiAyNTkuMTgxQzExOTguODYgMjc3LjkyMyAxMjA1LjI1IDI5Mi44MTkgMTIxOC4wNiAzMDMuOTE0QzEyMzAuODYgMzE0Ljk5OCAxMjQ3LjQxIDMyMC41MjkgMTI2Ny42OCAzMjAuNTI5QzEyODUuNDIgMzIwLjUyOSAxMzAzLjQ3IDMxNy4wNTggMTMxNy4zMSAzMDguODVDMTMzMS41IDMwMC40MjEgMTM0MS41NiAyODUuOTk5IDEzNDMuMzYgMjc3LjM5NFYyOTIuMDkyQzEzNDMuMzYgMzA1LjYxIDEzNTQuMzQgMzE2LjU4NCAxMzY3Ljg2IDMxNi41ODRIMTM4NS45NlYyOTAuMDc1SDEzNzguMzZWMjkwLjAzMUwxMzc4LjM3IDI5MC4wMDlaTTEzNDMgMjQ0LjA5OEMxMzQzIDI1NC4zODkgMTMzOS41MiAyNjMuNSAxMzMyLjU0IDI3MS40MTFDMTMyNS41NiAyNzkuMzIyIDEzMTYuNTEgMjg1LjQwNCAxMzA1LjM1IDI4OS42MTNDMTI5NC4xOSAyOTMuODQzIDEyODIuNzkgMjk2LjA5MSAxMjcxLjEzIDI5Ni4zNDRDMTI1Ni45MyAyOTYuMzQ0IDEyNDUuNTIgMjkzLjE4MiAxMjM2LjkxIDI4Ni44MzZDMTIyOC4yOSAyODAuNTEyIDEyMjMuOTggMjcxLjQgMTIyMy45OCAyNTkuNTIzQzEyMjMuOTggMjM5Ljk5OSAxMjM4LjE5IDIyOC45MTUgMTI2Ni41NyAyMjYuMjcxQzEyNjYuNTcgMjI2LjI3MSAxMzA1LjYgMjIzLjYzOCAxMzA5LjkxIDIyMy4xMDlDMTMwOS45MSAyMjMuMTA5IDEzMjYuMiAyMjIuMTE3IDEzMzguNzYgMjIwLjQ5OEMxMzQxIDIyMC4yIDEzNDMgMjIxLjk2MyAxMzQzIDIyNC4yMzNWMjQ0LjA4N1YyNDQuMDk4WiIgZmlsbD0iI0ZGRkZGRiIvPgo8cGF0aCBkPSJNODEuMDgwMSA2OS45NEM1MS4yMzI4IDEwMC4xNCAzMi44IDE0MS42NDQgMzIuOCAxODcuNDY3QzMyLjggMjMzLjI5IDUxLjIzMjggMjc0Ljc5NCA4MS4wODAxIDMwNC45OTRDMzMuNjkyNSAyODcuMDAyIDAgMjQxLjE2OCAwIDE4Ny40NjdDMCAxMzMuNzY2IDMzLjY5MjUgODcuOTMyMSA4MS4wODAxIDY5Ljk0WiIgZmlsbD0iI0ZGRkZGRiIvPgo8cGF0aCBkPSJNMzYxLjQ4NSAxNDguMDEyQzM1MC45ODUgMTA2Ljg3MiAzMjQuODk1IDY5LjY5NzcgMjg1LjYxNyA0Ni4wOTc2QzI0Ni4zNDkgMjIuNDk3NCAyMDEuMjY0IDE2LjkyMjQgMTYwLjAyNSAyNi45NDg2QzE5OS44NDMgLTQuNDE5MTEgMjU2LjQ4NiAtOS42OTY2MyAzMDIuNTE4IDE3Ljk2OTFDMzQ4LjU1IDQ1LjYyMzggMzcwLjQ4NyA5OC4xMDE2IDM2MS40ODUgMTQ4LjAwMVYxNDguMDEyWiIgZmlsbD0iI0ZGRkZGRiIvPgo8cGF0aCBkPSJNMzYxLjQ4NSAyMzEuMTMxQzM1MC45ODUgMjcyLjI3MiAzMjQuODk1IDMwOS40NDYgMjg1LjYxNyAzMzMuMDQ2QzI0Ni4zNDkgMzU2LjY0NiAyMDEuMjY0IDM2Mi4yMjEgMTYwLjAyNSAzNTIuMTk1QzE5OS44NDMgMzgzLjU2MyAyNTYuNDg2IDM4OC44NCAzMDIuNTE4IDM2MS4xNzVDMzQ4LjU1IDMzMy41MiAzNzAuNDg3IDI4MS4wNDIgMzYxLjQ4NSAyMzEuMTQyVjIzMS4xMzFaIiBmaWxsPSIjRkZGRkZGIi8+Cjwvc3ZnPgo=" alt="Musa" style="height:22px;display:block">
+    <div class="logo-divider"></div>
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMjU2LjAwMDAwMHB0IiBoZWlnaHQ9IjE5Mi4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDI1Ni4wMDAwMDAgMTkyLjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTkyLjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIKZmlsbD0iIzAwMDAwMCIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTExMjMgMTE3MCBjLTM3IC0yMiAtNDQgLTU1IC0xMyAtNjMgMTggLTUgMjAgLTE0IDIwIC04NCAwIC01NCAtNQotODUgLTE1IC05OSAtMTggLTI0IC0xOSAtNTggLTEgLTczIDggLTcgMzcgLTExIDY3IC05IDY1IDQgODAgMjIgNTkgNzAgLTkgMjIKLTE0IDczIC0xNCAxNTMgbC0xIDEyMCAtMzUgMyBjLTIyIDEgLTQ3IC01IC02NyAtMTh6Ii8+CjxwYXRoIGQ9Ik0yMTQyIDExNzggYy0xOSAtMTkgLTE0IC01MSAxOSAtMTExIDE5IC0zNSAzNyAtNTcgNDggLTU3IDQyIDAgMTAxCjc0IDEwMSAxMjggMCAzNiAtMjAgNDYgLTQ5IDI2IC0xOSAtMTQgLTI0IC0xMyAtNDcgNSAtMzAgMjQgLTU0IDI3IC03MiA5eiIvPgo8cGF0aCBkPSJNOTI1IDExMTIgYy00MiAtMjIgLTUxIC0zMiAtNTMgLTU4IC0yIC0yNCAxIC0zMyAxNyAtMzcgMTcgLTQgMTkKLTExIDE0IC02NSAtNSAtNTUgLTMgLTYyIDIwIC04NiAyMCAtMjAgMzYgLTI2IDY5IC0yNiA0OSAwIDYwIDYgNzcgMzggMTggMzMKOCA1MCAtMzEgNTQgLTMwIDMgLTMzIDYgLTMzIDM4IDAgMzEgMyAzNSAzMCAzOCAzNSA0IDQ1IDE2IDQ1IDU0IDAgMjIgLTUgMjcKLTI3IDMwIC0xNyAyIC0zMiAxMiAtMzggMjYgLTEzIDI5IC0yOSAyOCAtOTAgLTZ6Ii8+CjxwYXRoIGQ9Ik0zMDAgMTEwNyBjLTI3IC0xNCAtNTEgLTUzIC00MyAtNzIgMiAtNyAxMyAtMTUgMjQgLTE4IDE3IC01IDE5IC0xNQoxOSAtOTAgMCAtNjMgLTQgLTg4IC0xNSAtOTcgLTggLTcgLTE1IC0yNSAtMTUgLTQwIDAgLTM1IDM4IC01MyAxMDEgLTQ4IDQwIDMKNDQgNiA0NyAzMiAyIDE5IC0zIDM1IC0xOCA0OCAtMjYgMjUgLTEzIDQ2IDE3IDI3IDMxIC0xOSA4OCAtMyAxMTcgMzIgMjUgMzAKMzEgNjAgMjYgMTM0IC02IDg5IC05OSAxMzcgLTE1NiA4MCAtMjkgLTI5IC0zNCAtMzAgLTM0IC0xMCAwIDggLTkgMTkgLTE5IDI1Ci0yNCAxMiAtMjEgMTIgLTUxIC0zeiBtMTUwIC05NyBjMTcgLTMyIDkgLTg0IC0xNCAtODkgLTExIC0yIC0yNiA1IC0zMyAxNQotMTQgMTkgLTE4IDc2IC02IDg3IDEzIDE0IDQzIDYgNTMgLTEzeiIvPgo8cGF0aCBkPSJNNjg2IDExMTAgYy02NSAtMjAgLTEwMCAtNzkgLTk0IC0xNTcgNCAtNDQgMTEgLTYwIDM3IC04NiAyOSAtMjkgMzcKLTMyIDk3IC0zMiA2MCAwIDY4IDMgOTAgMjkgMzUgNDAgMjcgNTEgLTQyIDUxIC0zMiAwIC02NSA0IC03MSA4IC0yOCAxOCAtMTAKMjcgNTEgMjcgMzUgMCA3MSAzIDgwIDYgMzIgMTIgOSAxMjEgLTMxIDE0MiAtMjkgMTYgLTg1IDIyIC0xMTcgMTJ6IG03NCAtNjUKYzIwIC0yNCA0IC00NSAtMzQgLTQ1IC00MSAwIC01MSAxMiAtMzYgNDAgMTMgMjQgNTIgMjcgNzAgNXoiLz4KPHBhdGggZD0iTTEzNDUgMTExMCBjLTQ1IC0xOCAtNjkgLTU4IC03MyAtMTIyIC04IC0xMDUgMzQgLTE1MyAxMzMgLTE1MiA4NyAwCjEzNSA1MSAxMzUgMTQxIDAgMTAyIC0xMDIgMTcyIC0xOTUgMTMzeiBtODAgLTk0IGMyMyAtMzQgMjQgLTc2IDMgLTkwIC0zOAotMjQgLTgxIDQyIC01OSA5MCAxNCAzMSAzNiAzMSA1NiAweiIvPgo8cGF0aCBkPSJNMTkyMCAxMTAyIGMtNjggLTM0IC05MyAtMTQ1IC00NyAtMjEzIDQyIC02NCAxNTEgLTc2IDIwNCAtMjMgMzQgMzQKMjUgNDkgLTMzIDUyIC02NCAzIC05NCAxMCAtOTQgMjIgMCA2IDI0IDEwIDU0IDEwIDc5IDAgMTA2IDEzIDEwNiA0OSAwIDk4Ci05NiAxNTAgLTE5MCAxMDN6IG05MSAtNDIgYzQxIC0yMiAxOCAtNjAgLTM2IC02MCAtMzMgMCAtNDAgMTYgLTIxIDQ1IDE4IDI4CjI4IDMwIDU3IDE1eiIvPgo8cGF0aCBkPSJNMTU2MiAxMDk4IGMtMTQgLTE0IC0xNiAtNTQgLTMgLTYzIDUgLTMgMTkgLTM2IDMyIC03MyA0MCAtMTIxIDQyCi0xMjMgMTA2IC0xMjAgbDU2IDMgMzMgODggYzE3IDQ4IDM3IDk0IDQ0IDEwMiA2IDcgMTAgMjYgOCA0MiAtMyAyNyAtNiAyOAotNTMgMjggbC01MCAwIDIgLTQwIGM0IC03MiA0IC04MiAtNyAtMTEwIC0xOCAtNDkgLTM1IC0xNCAtMzUgNzMgbDAgNzcgLTYwIDMKYy0zOCAyIC02NSAtMiAtNzMgLTEweiIvPgo8L2c+Cjwvc3ZnPgo=" alt="Petlove" style="width:112px;height:auto;filter:brightness(0) invert(1);opacity:0.7;display:block;margin-left:-6px">
+  </div>
+  <div class="header-meta">
+    <div class="header-meta-label">Reunião ESG</div>
+    <div class="header-meta-value">Junho 2026</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-title">"Não é sobre ser o primeiro, é sobre fazer o certo."</div>
+  <div class="hero-sub">A Petlove decidiu que cuidar do pet, das pessoas e do planeta fazem parte do mesmo negócio. A Musa existe para que cada resíduo encontre o caminho certo, coleta por coleta, loja por loja. Juntos, transformamos compromisso em impacto de verdade.</div>
+
+  <div class="agenda-pills" style="margin-top:32px;margin-bottom:0">
+    <div class="agenda-pill active">
+      <div class="agenda-pill-num">1</div>
+      Comunicação da parceria
+    </div>
+    <div class="agenda-pill active">
+      <div class="agenda-pill-num">2</div>
+      Melhoria da taxa de reciclagem
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- PRINCÍPIO -->
+  <div class="section">
+    <div class="section-eyebrow">● Ponto de partida</div>
+    <div class="section-title">A história é de vocês. Os dados são nossos.</div>
+    <div class="section-lead">A Petlove já tem a narrativa, o alcance e a credibilidade B Corp. A Musa tem os dados que provam que a narrativa ambiental é real. A lógica é simples: vocês contam a história, a Musa aparece como a fonte que torna ela verificável.</div>
+
+    <div>
+      <div class="principle">
+        <div class="principle-icon">→</div>
+        <div class="principle-text">
+          <strong>Vocês comunicam, citando a Musa como fonte de dados</strong>
+          Não o contrário. A iniciativa parte de vocês, no tom de vocês, para o público de vocês.
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">→</div>
+        <div class="principle-text">
+          <strong>Dados reais como base de qualquer conteúdo</strong>
+          Nenhum número sem rastreabilidade. Isso diferencia comunicação de impacto genuíno de marketing ambiental genérico.
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">→</div>
+        <div class="principle-text">
+          <strong>Aterro Zero como meta da rede</strong>
+          Uma meta com nome e direção para todas as lojas e CDs. A Musa rastreia o progresso de cada unidade — e os dados mostram o caminho.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TEMA 1 -->
+  <div class="section">
+    <div class="section-eyebrow">● Tema 1 · Comunicação da parceria</div>
+    <div class="section-title">Ideias para levar os dados além do relatório</div>
+    <div class="section-lead">Três eixos: conteúdo que vocês publicam com os dados como âncora, formatos que a Musa produz com protagonismo de vocês, e presença física nas lojas.</div>
+
+    <!-- Conteúdo orgânico -->
+    <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px">Conteúdo orgânico — vocês publicam</div>
+    <div class="cards-grid" style="margin-bottom:28px">
+
+      <div class="idea-card">
+        <div class="idea-card-tag tag-orange">Conteúdo âncora</div>
+        <div class="idea-card-title">CD Itapeva: o caso mais completo</div>
+        <div class="idea-card-body">Post detalhado sobre o CD — LEED + energia renovável + 72,5% de taxa de reciclagem + maior volume da rede. É o único ativo que conecta infraestrutura física, certificação e dado operacional no mesmo lugar. <strong>A Musa aparece como fonte dos dados de resíduo.</strong></div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-card-tag tag-dark">Série</div>
+        <div class="idea-card-title">Uma loja, um número</div>
+        <div class="idea-card-body">Série de posts curtos com o desempenho de cada unidade — "Cidade Jardim recicla 71% dos resíduos gerados." Dado real, verificável, com fonte Musa. Formatos nativos para LinkedIn e Instagram. Constrói consistência ao longo do tempo.</div>
+      </div>
+
+    </div>
+
+    <!-- Formatos co-criados -->
+    <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px">Formatos co-criados — Musa produz, vocês têm voz</div>
+    <div class="cards-grid" style="margin-bottom:28px">
+
+      <div class="idea-card">
+        <div class="idea-card-tag tag-blue">Podcast Musa</div>
+        <div class="idea-card-title">Ser B Corp na operação física</div>
+        <div class="idea-card-body">Episódio do podcast da Musa com alguém da Petlove — não o discurso institucional, mas o que é difícil na prática. O que surpreendeu. O que os dados revelaram. <strong>Vocês têm o protagonismo, a Musa entrevista.</strong></div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-card-tag tag-blue">Evento Musa</div>
+        <div class="idea-card-title">ESG no varejo: os desafios reais</div>
+        <div class="idea-card-body">Evento Musa com painel onde a Petlove fala sobre os desafios de implementar B Corp na ponta — lojas, CD, logística. Conversa honesta, não palestra de marketing. Mais valor de reputação do que qualquer post.</div>
+      </div>
+
+    </div>
+
+    <!-- Presença física -->
+    <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px">Presença física — onde o cliente vê</div>
+    <div class="cards-grid">
+
+      <div class="idea-card">
+        <div class="idea-card-tag tag-dark">Lojas</div>
+        <div class="idea-card-title">Selo com QR nas lojas físicas</div>
+        <div class="idea-card-body">"Resíduos desta loja rastreados por Musa" — discreto, com QR code que leva para o mini-dashboard da unidade. O cliente da loja vê que aquele resíduo tem destino. <strong>Vira foto. Vira conteúdo.</strong></div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-card-tag tag-dark">Marketplace</div>
+        <div class="idea-card-title">Petlove: empresa Aterro Zero</div>
+        <div class="idea-card-body">Selo no marketplace que comunica o compromisso da Petlove com Aterro Zero. O cliente compra de uma empresa que rastreia e tem meta para cada resíduo gerado. <strong>Não é sobre a embalagem — é sobre a empresa.</strong></div>
+      </div>
+
+    </div>
+
+    <!-- Prova e reconhecimento -->
+    <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;margin-top:28px">Prova e reconhecimento — o que fica</div>
+    <div class="cards-grid">
+
+      <div class="idea-card">
+        <div class="idea-card-tag tag-blue">Visão da rede</div>
+        <div class="idea-card-title">Relatório de impacto ambiental anual</div>
+        <div class="idea-card-body">O documento que consolida a história da rede toda — volume, taxa de reciclagem, CO₂ evitado, progresso Aterro Zero. Vai para investidor, parceiro, candidato. <strong>É a prova impressa do discurso B Corp.</strong></div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-card-tag tag-blue">Da loja para o time</div>
+        <div class="idea-card-title">Certificado anual por unidade</div>
+        <div class="idea-card-body">Cada loja e CD recebe o seu. Documenta o resultado do ano, reconhece a evolução, mostra o quanto falta para Aterro Zero. Fala para o gerente e o time — fecha o ciclo interno que o ranking abre durante o ano.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="background:var(--dark);border-radius:var(--radius);padding:28px 40px;margin:48px 0;display:flex;align-items:center;justify-content:space-between">
+    <div style="font-family:var(--serif);font-size:20px;color:#fff;font-weight:400">Tema 2 — Melhoria da taxa de reciclagem</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4)">Taxa média da rede · 49,3%</div>
+  </div>
+
+  <!-- TEMA 2 -->
+  <div class="section">
+    <div class="section-eyebrow">● Tema 2 · Melhoria da taxa de reciclagem</div>
+    <div class="section-title">Transformar o relatório em agenda interna</div>
+    <div class="section-lead">Os dados já existem. Três lojas estão abaixo de 27% de reciclagem. A média da rede pode ser outra — com metas claras, padrão operacional definido e pessoas formadas para sustentar o resultado.</div>
+
+    <!-- Ranking preview -->
+    <div class="ranking-preview" style="margin-bottom:24px">
+      <div class="ranking-header">
+        <div class="ranking-header-title">Taxa de reciclagem por loja — 2025</div>
+        <div style="font-size:11px;color:var(--text-muted)">meta 2026: todas acima de 40%</div>
+      </div>
+      <div class="ranking-row">
+        <div class="ranking-pos top">1</div>
+        <div class="ranking-name">CD Itapeva</div>
+        <div class="ranking-tier tier-a" style="background:#fdf0e6;color:#b35a00">CD</div>
+        <div class="ranking-bar-wrap"><div class="ranking-bar-fill" style="width:72.5%;background:#b35a00"></div></div>
+        <div class="ranking-pct">72,5%</div>
+      </div>
+      <div class="ranking-row">
+        <div class="ranking-pos top">2</div>
+        <div class="ranking-name">Cidade Jardim</div>
+        <div class="ranking-tier tier-a">A</div>
+        <div class="ranking-bar-wrap"><div class="ranking-bar-fill" style="width:71%;background:#8AA5FF"></div></div>
+        <div class="ranking-pct">71,0%</div>
+      </div>
+      <div class="ranking-row">
+        <div class="ranking-pos">3</div>
+        <div class="ranking-name">Oscar Freire</div>
+        <div class="ranking-tier tier-a">A</div>
+        <div class="ranking-bar-wrap"><div class="ranking-bar-fill" style="width:68.4%;background:#8AA5FF"></div></div>
+        <div class="ranking-pct">68,4%</div>
+      </div>
+      <div class="ranking-row">
+        <div class="ranking-pos">—</div>
+        <div class="ranking-name" style="color:var(--text-muted)">· · · · ·</div>
+        <div class="ranking-tier" style="background:transparent"></div>
+        <div class="ranking-bar-wrap" style="background:transparent"></div>
+        <div class="ranking-pct"></div>
+      </div>
+      <div class="ranking-row">
+        <div class="ranking-pos">10</div>
+        <div class="ranking-name">Sócrates</div>
+        <div class="ranking-tier tier-c">C</div>
+        <div class="ranking-bar-wrap"><div class="ranking-bar-fill" style="width:26.6%;background:#db9865"></div></div>
+        <div class="ranking-pct">26,6%</div>
+      </div>
+      <div class="ranking-row">
+        <div class="ranking-pos">11</div>
+        <div class="ranking-name">Portugal (S. André)</div>
+        <div class="ranking-tier tier-c">C</div>
+        <div class="ranking-bar-wrap"><div class="ranking-bar-fill" style="width:24%;background:#db9865"></div></div>
+        <div class="ranking-pct">24,0%</div>
+      </div>
+      <div class="ranking-row">
+        <div class="ranking-pos">12</div>
+        <div class="ranking-name">Santos</div>
+        <div class="ranking-tier tier-c">C</div>
+        <div class="ranking-bar-wrap"><div class="ranking-bar-fill" style="width:22.8%;background:#db9865"></div></div>
+        <div class="ranking-pct">22,8%</div>
+      </div>
+    </div>
+
+    <!-- Categoria 1 -->
+    <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;margin-top:32px">Visibilidade e metas — o que move a rede</div>
+    <div class="cards-grid" style="margin-bottom:28px">
+      <div class="idea-card">
+        <div class="idea-card-tag tag-orange">Dados em tempo real</div>
+        <div class="idea-card-title">Ranking de reciclabilidade com meta Aterro Zero</div>
+        <div class="idea-card-body">Visível para toda a rede, atualizado pela Musa, com tier por loja. Cada gerente sabe onde está e onde estão os outros. <strong>A competição interna é o motor mais barato de melhoria de comportamento.</strong></div>
+      </div>
+      <div class="idea-card">
+        <div class="idea-card-tag tag-orange">Engajamento</div>
+        <div class="idea-card-title">Reconhecimento por evolução de tier</div>
+        <div class="idea-card-body">Lojas que sobem de tier ganham visibilidade interna — e externa se a Petlove quiser. A loja que sair do Tier C vira case. O esforço da operação alimenta a narrativa B Corp e a meta de Aterro Zero.</div>
+      </div>
+    </div>
+
+    <!-- Categoria 2 -->
+    <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px">Padrão operacional — o que reduz os erros</div>
+    <div class="cards-grid" style="margin-bottom:28px">
+      <div class="idea-card">
+        <div class="idea-card-tag tag-dark">Material Petlove</div>
+        <div class="idea-card-title">Playbook de separação de resíduos</div>
+        <div class="idea-card-body">Material na identidade Petlove, construído com base nos dados reais de cada loja. O padrão oficial da rede — o que é cada resíduo, qual saco, qual lixeira. <strong>A Musa fornece a inteligência. A Petlove assina e distribui.</strong></div>
+      </div>
+      <div class="idea-card">
+        <div class="idea-card-tag tag-dark">Implementação imediata</div>
+        <div class="idea-card-title">Padronização de sacos por cor</div>
+        <div class="idea-card-body">Saco preto é rejeito, sem exceção. Uma mudança simples e imediata com impacto direto na taxa de reciclagem. Elimina ambiguidade na ponta e reduz contaminação por erro humano.</div>
+      </div>
+    </div>
+
+    <!-- Categoria 3 -->
+    <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px">Formação de pessoas — o que sustenta o resultado</div>
+    <div class="cards-grid">
+      <div class="idea-card">
+        <div class="idea-card-tag tag-blue">Primeiro dia</div>
+        <div class="idea-card-title">Onboarding de resíduos</div>
+        <div class="idea-card-body">Entra no primeiro dia, junto com o uniforme. Baseado no playbook, na identidade Petlove, como instrução oficial. A rotatividade no varejo é alta — cada novo colaborador sem treinamento contamina o fluxo.</div>
+      </div>
+      <div class="idea-card">
+        <div class="idea-card-tag tag-blue">Conhecimento</div>
+        <div class="idea-card-title">Reciclagem de conhecimento</div>
+        <div class="idea-card-body">As lojas Tier A ensinam as Tier C, par a par. O dado da Musa identifica quem tem o quê para ensinar. O conhecimento que já existe na rede vira ativo — não fica concentrado em quem já performa bem.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div class="footer-note">
+    Dados baseados no relatório de resíduos Petlove 2025 · Musa Inteligência de Resíduos · musa.co
+  </div>
+
+</div>
+</body>
+</html>
