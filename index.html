@@ -174,7 +174,8 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text-primar
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 .idea-card-tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: 10px;
   font-weight: 600;
   padding: 3px 10px;
@@ -182,6 +183,7 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text-primar
   margin-bottom: 14px;
   text-transform: uppercase;
   letter-spacing: .06em;
+  height: 22px;
 }
 .tag-orange { background: #fff4eb; color: var(--orange-dark); }
 .tag-blue   { background: var(--blue-light); color: #4466cc; }
@@ -450,6 +452,22 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text-primar
   .featured-card { padding: 24px; }
   .featured-card-title { font-size: 19px; }
 }
+
+.star-badge {
+  width: 28px;
+  height: 28px;
+  background: #fff4eb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  align-self: center;
+}
+.star-badge svg {
+  width: 14px;
+  height: 14px;
+}
 </style>
 </head>
 <body>
@@ -536,7 +554,7 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text-primar
     <div class="cards-grid" style="margin-bottom:28px">
 
       <div class="idea-card">
-        <div class="idea-card-tag tag-orange">Conteúdo âncora</div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><div class="idea-card-tag tag-orange" style="margin-bottom:0">Conteúdo âncora</div><div class="star-badge"><svg viewBox="0 0 24 24" fill="#FFBA86" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div></div>
         <div class="idea-card-title">CD Itapeva: o caso mais completo</div>
         <div class="idea-card-body">Post detalhado sobre o CD — LEED + energia renovável + 72,5% de taxa de reciclagem + maior volume da rede. É o único ativo que conecta infraestrutura física, certificação e dado operacional no mesmo lugar. <strong>A Musa aparece como fonte dos dados de resíduo.</strong></div>
       </div>
@@ -590,7 +608,7 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text-primar
     <div class="cards-grid">
 
       <div class="idea-card">
-        <div class="idea-card-tag tag-blue">Visão da rede</div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><div class="idea-card-tag tag-blue" style="margin-bottom:0">Visão da rede</div><div class="star-badge"><svg viewBox="0 0 24 24" fill="#FFBA86" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div></div>
         <div class="idea-card-title">Relatório de impacto ambiental anual</div>
         <div class="idea-card-body">O documento que consolida a história da rede toda — volume, taxa de reciclagem, CO₂ evitado, progresso Aterro Zero. Vai para investidor, parceiro, candidato. <strong>É a prova impressa do discurso B Corp.</strong></div>
       </div>
@@ -711,7 +729,7 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text-primar
     <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;margin-top:32px">Visibilidade e metas — o que move a rede</div>
     <div class="cards-grid" style="margin-bottom:28px">
       <div class="idea-card">
-        <div class="idea-card-tag tag-orange">Dados em tempo real</div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><div class="idea-card-tag tag-orange" style="margin-bottom:0">Dados em tempo real</div><div class="star-badge"><svg viewBox="0 0 24 24" fill="#FFBA86" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div></div>
         <div class="idea-card-title">Ranking de reciclabilidade com meta Aterro Zero</div>
         <div class="idea-card-body">Visível para toda a rede, atualizado pela Musa, com tier por loja. Cada gerente sabe onde está e onde estão os outros. <strong>A competição interna é o motor mais barato de melhoria de comportamento.</strong></div>
       </div>
@@ -752,6 +770,37 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text-primar
       </div>
     </div>
   </div>
+
+
+    <!-- POSICIONAMENTO SUGERIDO -->
+    <div style="margin-top:48px">
+      <div class="section-eyebrow">● Posicionamento sugerido</div>
+      <div class="section-title">A primeira empresa Pet Zero Aterro do Brasil.</div>
+      <div class="section-lead">Esse é o posicionamento sugerido para comunicar as ações em resíduos e a parceria com a Musa, como viabilizadora da meta Aterro Zero a nível nacional. Uma declaração que conecta o compromisso B Corp com uma meta operacional concreta — verificável, rastreável, coleta por coleta.</div>
+    </div>
+
+    <!-- PRÓXIMOS PASSOS -->
+    <div style="background:var(--dark);border-radius:var(--radius);padding:36px 40px;margin-top:48px">
+      <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:20px">● Próximos passos conjuntos — próximo mês</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+        <div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px">Para os consumidores</div>
+          <div style="font-family:var(--serif);font-size:16px;color:#fff;line-height:1.4;margin-bottom:8px">Comunicação conjunta da parceria</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6">Post nas redes sociais sobre Aterro Zero. O CD Itapeva como protagonista — certificação LEED, energia renovável e dados de resíduo rastreados pela Musa. O primeiro conteúdo da parceria.</div>
+        </div>
+        <div style="border-left:1px solid rgba(255,255,255,0.08);padding-left:20px">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px">Para a empresa</div>
+          <div style="font-family:var(--serif);font-size:16px;color:#fff;line-height:1.4;margin-bottom:8px">Apresentação do relatório 2025</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6">Apresentação interna dos dados de resíduos conectada ao relatório de sustentabilidade da Petlove.</div>
+        </div>
+        <div style="border-left:1px solid rgba(255,255,255,0.08);padding-left:20px">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px">Para as lojas</div>
+          <div style="font-family:var(--serif);font-size:16px;color:#fff;line-height:1.4;margin-bottom:8px">Relatório mensal de reciclagem</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6">Cada loja recebe seu desempenho com metas e dicas práticas para aumentar a taxa de reciclagem.</div>
+        </div>
+      </div>
+    </div>
+
 
   <!-- FOOTER NOTE -->
   <div class="footer-note">
